@@ -3,4 +3,4 @@
   publish = "src/nextjs/out"
 
 [template.environment]
-  LIFF_ID = "Your LIFF ID which is aquired from LINE Dev Center"
+  LIFF_ID = "1657786760-gGqjpqBE"
