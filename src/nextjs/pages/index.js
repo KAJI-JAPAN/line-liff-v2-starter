@@ -57,6 +57,6 @@ export default function Home(props) {
               <label for={result.todo}>{result.todo}</label>
             </div>
           ))}
-    </div>
+      </div>
   );
 }
