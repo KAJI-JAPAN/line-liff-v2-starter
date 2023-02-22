@@ -4,13 +4,18 @@ import packageJson from "../package.json";
 
 export default function Home(props) {
   const [newTodoToggle, setNewTodoToggle] = useState(false);
-  const [input, setInput] = useState("");
-  const [result, setResult] = useState([]);
+  const [todo, setTodo] = useState("");
+  const [todoDescription, setTodoDescription] = useState("")
+  const [todoResult, seTodoResult] = useState([]);
 
   const newTodoSave = () => {
-    setResult(input)
+    if(todo !== "") {
+      seTodoResult(todoResult => [...todoResult, {todo, todoDescription}])
+      setTodo("")
+      setTodoDescription("")
+    }
   }
-  console.log(result)
+  console.log(todoResult)
   /** You can access to liff and liffError object through the props.
    *  const { liff, liffError } = props;
    *  console.log(liff.getVersion());
@@ -25,12 +30,28 @@ export default function Home(props) {
         <button onClick={() => setNewTodoToggle(!newTodoToggle)}>＋ New Todo</button>
         {newTodoToggle &&
           <div>
-          Todo Title: <input value={input} onChange={(event) => setInput(event.target.value)} />
-          <button>x</button>
-          <textarea rows={7} cols={30}></textarea>
-          <button onClick={newTodoSave}>Save</button>
-        </div>
-          }
+            Todo Title: <input value={todo} onChange={(event) => setTodo(event.target.value)} />
+            <button>x</button>
+            <textarea
+              rows={7}
+              cols={30} 
+              value={todoDescription}
+              onChange={(event) => setTodoDescription(event.target.value) }
+            />
+            <button onClick={newTodoSave}>Save</button>
+          </div>
+        }
+          {
+          todoResult.map((result) => (
+            <div>
+              <input
+                type="checkbox"
+                value={result.todo}
+                id={result.todo}
+              />
+              <label for={result.todo}>{result.todo}</label>
+            </div>
+          ))}
     </div>
   );
 }
