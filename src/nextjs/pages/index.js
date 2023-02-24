@@ -7,6 +7,7 @@ import NewTodo from "../components/NewTodo";
 export default function Home(props) {
   const [newTodoToggle, setNewTodoToggle] = useState(false);
 
+
   /** You can access to liff and liffError object through the props.
    *  const { liff, liffError } = props;
    *  console.log(liff.getVersion());
@@ -20,7 +21,6 @@ export default function Home(props) {
       </Head>
         <button onClick={() => setNewTodoToggle(!newTodoToggle)}>＋ New Todo</button>
         {newTodoToggle && <NewTodo /> }
-        <ResultTodo />
     </div>
   );
 }

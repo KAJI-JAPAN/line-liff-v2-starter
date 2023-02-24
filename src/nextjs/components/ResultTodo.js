@@ -4,7 +4,7 @@ export default function ResultTodo(props) {
   return (
     <>
     {
-      props.results.map((result, index) => (
+      props.result.map((result, index) => (
         <div key={index}>
           <input
             type="checkbox"
