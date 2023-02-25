@@ -3,6 +3,8 @@ import  ResultTodo  from "../components/ResultTodo"
 import { useState } from "react";
 import packageJson from "../package.json";
 import NewTodo from "../components/NewTodo";
+import TodoStyle from "../styles/Todo.module.css"
+import FinishedTodo from "../components/FinishedTodo";
 
 export default function Home(props) {
   const [newTodoToggle, setNewTodoToggle] = useState(false);
@@ -19,8 +21,14 @@ export default function Home(props) {
       <Head>
         <title>Todo Sample</title>
       </Head>
-        <button onClick={() => setNewTodoToggle(!newTodoToggle)}>＋ New Todo</button>
+      <div className={TodoStyle.container}>
+        <button onClick={() => setNewTodoToggle(!newTodoToggle)} className={TodoStyle.title}>＋ New Todo</button>
         {newTodoToggle && <NewTodo /> }
+      </div>
+      <ResultTodo result={todoResult} />
+
+      <div>Finished Todo</div>
+      <FinishedTodo />
     </div>
   );
 }

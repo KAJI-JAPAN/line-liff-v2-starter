@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ResultTodo from "./ResultTodo";
+import TodoStyle from "../styles/Todo.module.css"
 
 export default function NewTodo() {
 
@@ -22,19 +23,20 @@ export default function NewTodo() {
 
   return(
     <>
-      <div>
-        Todo Title: <input value={todo} onChange={(event) => setTodo(event.target.value)} placeholder="New Todo" />
+      <div className={TodoStyle.input}>
+        <input value={todo} onChange={(event) => setTodo(event.target.value)} placeholder="New Todo Title" />
         <button onClick={() => cancelTodo()}>x</button>
+      </div>
+      <div>
         <textarea
-          rows={7}
-          cols={30} 
           value={todoDescription}
           onChange={(event) => setTodoDescription(event.target.value) }
           placeholder="New Todo Description"
+          className={TodoStyle.input}
         />
-        <button onClick={newTodoSave}>Save</button>
-    </div>
-    <ResultTodo result={todoResult} />
+      </div>
+      <button onClick={newTodoSave} className={TodoStyle.button}>Save</button>
+      <ResultTodo result={todoResult} />
   </>
   )
 }
