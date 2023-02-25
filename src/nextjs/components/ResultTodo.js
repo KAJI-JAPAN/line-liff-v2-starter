@@ -1,10 +1,11 @@
+import { useContext } from "react"
 
-export default function ResultTodo(props) {
-  console.log(props.results) 
+export default function ResultTodo() {
+  const { todoResult } = useContext(TodoResultContext);
   return (
     <>
     {
-      props.result.map((result, index) => (
+      todoResult.map((result, index) => (
         <div key={index}>
           <input
             type="checkbox"

@@ -1,12 +1,14 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import ResultTodo from "./ResultTodo";
 import TodoStyle from "../styles/Todo.module.css"
+import { TodoResultContext } from "../providers/TodoResultProvider";
 
 export default function NewTodo() {
 
   const [todo, setTodo] = useState("");
   const [todoDescription, setTodoDescription] = useState("")
-  const [todoResult, seTodoResult] = useState([]);
+  // const [todoResult, seTodoResult] = useState([]);
+  const {seTodoResult} = useContext(TodoResultContext);
 
 
   const newTodoSave = () => {
@@ -36,7 +38,6 @@ export default function NewTodo() {
         />
       </div>
       <button onClick={newTodoSave} className={TodoStyle.button}>Save</button>
-      <ResultTodo result={todoResult} />
   </>
   )
 }

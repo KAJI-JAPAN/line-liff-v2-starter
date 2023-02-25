@@ -25,8 +25,7 @@ export default function Home(props) {
         <button onClick={() => setNewTodoToggle(!newTodoToggle)} className={TodoStyle.title}>＋ New Todo</button>
         {newTodoToggle && <NewTodo /> }
       </div>
-      <ResultTodo result={todoResult} />
-
+      <ResultTodo />
       <div>Finished Todo</div>
       <FinishedTodo />
     </div>
