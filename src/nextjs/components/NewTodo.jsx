@@ -8,8 +8,7 @@ export default function NewTodo() {
   const [todo, setTodo] = useState("");
   const [todoDescription, setTodoDescription] = useState("")
   // const [todoResult, seTodoResult] = useState([]);
-  const {seTodoResult} = useContext(TodoResultContext);
-
+  const {todoResult, seTodoResult} = useContext(TodoResultContext);
 
   const newTodoSave = () => {
     if(todo !== "") {

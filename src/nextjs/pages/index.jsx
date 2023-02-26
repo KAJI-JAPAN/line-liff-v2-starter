@@ -5,10 +5,11 @@ import packageJson from "../package.json";
 import NewTodo from "../components/NewTodo";
 import TodoStyle from "../styles/Todo.module.css"
 import FinishedTodo from "../components/FinishedTodo";
+import { TodoResultProvider } from "../providers/TodoResultProvider";
 
 export default function Home(props) {
   const [newTodoToggle, setNewTodoToggle] = useState(false);
-
+  
 
   /** You can access to liff and liffError object through the props.
    *  const { liff, liffError } = props;
@@ -17,17 +18,19 @@ export default function Home(props) {
    *  Learn more about LIFF API documentation (https://developers.line.biz/en/reference/liff)
    **/
   return (
-    <div>
+    <>
       <Head>
         <title>Todo Sample</title>
       </Head>
-      <div className={TodoStyle.container}>
-        <button onClick={() => setNewTodoToggle(!newTodoToggle)} className={TodoStyle.title}>＋ New Todo</button>
-        {newTodoToggle && <NewTodo /> }
-      </div>
-      <ResultTodo />
-      <div>Finished Todo</div>
-      <FinishedTodo />
-    </div>
+      <TodoResultProvider>
+        <div className={TodoStyle.container}>
+          <button onClick={() => setNewTodoToggle(!newTodoToggle)} className={TodoStyle.title}>＋ New Todo</button>
+          {newTodoToggle && <NewTodo /> }
+        <ResultTodo />
+        <div>Finished Todo</div>
+        <FinishedTodo />
+        </div>
+      </TodoResultProvider>
+    </>
   );
 }
