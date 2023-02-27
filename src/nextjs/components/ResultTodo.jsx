@@ -1,7 +1,7 @@
 import { useContext } from "react"
 import { TodoResultContext } from "../providers/TodoResultProvider"
 
-export default function ResultTodo() {
+export const ResultTodo = () => {
   const { todoResult } = useContext(TodoResultContext);
   return (
     <>

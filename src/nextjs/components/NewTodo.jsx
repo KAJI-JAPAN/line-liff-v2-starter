@@ -3,7 +3,7 @@ import TodoStyle from "../styles/Todo.module.css";
 import { TodoResultContext } from "../providers/TodoResultProvider";
 import { CompleteFlagContext } from "../providers/CompleteFlagProvider";
 
-export default function NewTodo() {
+export const NewTodo = () => {
   const [todo, setTodo] = useState("");
   const [todoDescription, setTodoDescription] = useState("");
   const { todoResult, seTodoResult } = useContext(TodoResultContext);
