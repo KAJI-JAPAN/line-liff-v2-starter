@@ -1,12 +1,11 @@
 import Head from "next/head";
-import { ResultTodo } from "../components/ResultTodo";
+import  ResultTodo  from "../components/ResultTodo";
 import { useState } from "react";
-import packageJson from "../package.json";
-import NewTodo from "../components/NewTodo";
+import  NewTodo  from "../components/NewTodo";
 import TodoStyle from "../styles/Todo.module.css";
-import { FinishedTodo } from "../components/FinishedTodo";
-import { TodoResultProvider } from "../providers/TodoResultProvider";
-import { CompleteFlagProvider } from "../providers/CompleteFlagProvider";
+import  FinishedTodo  from "../components/FinishedTodo";
+import { TodoResultProvider }  from "../providers/TodoResultProvider";
+import { CompleteFlagProvider }  from "../providers/CompleteFlagProvider";
 
 export default function Home(props) {
   const [newTodoToggle, setNewTodoToggle] = useState(false);
@@ -27,7 +26,7 @@ export default function Home(props) {
             </button>
             {newTodoToggle && <NewTodo />}
             <ResultTodo />
-            {/* <FinishedTodo /> */}
+            <FinishedTodo />
           </div>
         </CompleteFlagProvider>
       </TodoResultProvider>
