@@ -1,20 +1,15 @@
 import { useContext, useState } from "react";
 import TodoStyle from "../styles/Todo.module.css";
 import { TodoResultContext } from "../providers/TodoResultProvider";
-import { CompleteFlagContext } from "../providers/CompleteFlagProvider";
 
 export const NewTodo = () => {
   const [todo, setTodo] = useState("");
   const [todoDescription, setTodoDescription] = useState("");
-  const { todoResult, seTodoResult } = useContext(TodoResultContext);
-  const { isCompleteFlag } = useContext(CompleteFlagContext);
+  const { todoResult, setTodoResult } = useContext(TodoResultContext);
 
   const newTodoSave = () => {
     if (todo !== "") {
-      seTodoResult((todoResult) => [
-        ...todoResult,
-        { todo, todoDescription, isCompleteFlag, isCompleteFlag },
-      ]);
+      setTodoResult([...todoResult, { todo, todoDescription, isCompleteFlag: false },]);
       cancelTodo();
     }
   };

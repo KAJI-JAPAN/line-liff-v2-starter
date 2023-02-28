@@ -5,7 +5,6 @@ import { NewTodo }  from "../components/NewTodo";
 import TodoStyle from "../styles/Todo.module.css";
 import  { FinishedTodo }  from "../components/FinishedTodo";
 import { TodoResultProvider }  from "../providers/TodoResultProvider";
-import { CompleteFlagProvider }  from "../providers/CompleteFlagProvider";
 
 export default function Home(props) {
   const [newTodoToggle, setNewTodoToggle] = useState(false);
@@ -16,7 +15,6 @@ export default function Home(props) {
         <title>Todo Sample</title>
       </Head>
       <TodoResultProvider>
-        <CompleteFlagProvider>
           <div className={TodoStyle.container}>
             <button
               onClick={() => setNewTodoToggle(!newTodoToggle)}
@@ -28,7 +26,6 @@ export default function Home(props) {
             <ResultTodo />
             <FinishedTodo />
           </div>
-        </CompleteFlagProvider>
       </TodoResultProvider>
     </>
   );

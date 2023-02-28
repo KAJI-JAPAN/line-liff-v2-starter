@@ -4,9 +4,9 @@ export const TodoResultContext = createContext({});
 
 export const TodoResultProvider = (props) => {
   const { children } = props
-  const [todoResult, seTodoResult] = useState([]);
+  const [todoResult, setTodoResult] = useState([]);
   return(
-    <TodoResultContext.Provider value={{ todoResult, seTodoResult }}>
+    <TodoResultContext.Provider value={{ todoResult, setTodoResult }}>
       { children }
     </TodoResultContext.Provider>
   )
