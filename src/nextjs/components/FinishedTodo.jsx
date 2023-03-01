@@ -1,11 +1,14 @@
 import { useContext } from "react";
 import { TodoResultContext } from "../providers/TodoResultProvider"
+import TodoStyle from "../styles/Todo.module.css"
 
 export const FinishedTodo = () => {
   const { todoResult, setTodoResult } = useContext(TodoResultContext);
   return(
     <>
-      <div>Finished Todo</div>
+      <div className={TodoStyle.finishedTodoTitle}>
+        Finished Todo
+      </div>
       {
       todoResult.map((result, index) => (
         result.isCompleteFlag &&

@@ -2,6 +2,7 @@ import { useContext, useState } from "react";
 import TodoStyle from "../styles/Todo.module.css";
 import { TodoResultContext } from "../providers/TodoResultProvider";
 
+
 export const NewTodo = () => {
   const [todo, setTodo] = useState("");
   const [todoDescription, setTodoDescription] = useState("");

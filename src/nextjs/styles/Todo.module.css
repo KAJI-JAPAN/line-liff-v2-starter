@@ -6,6 +6,8 @@
 }
 .title {
   margin-bottom: 5px;
+  display: block;
+  width: 100%;
 }
 
 .input {
@@ -14,4 +16,15 @@
 
 .button {
   width: 100%; 
+}
+
+.finishedTodo {
+  margin-top: 30px;
+}
+
+.finishedTodoTitle {
+  border: 1px solid gray;
+  padding: 5px;
+  margin-bottom: 10px;
+  text-align: center;
 }

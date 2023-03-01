@@ -24,7 +24,9 @@ export default function Home(props) {
             </button>
             {newTodoToggle && <NewTodo />}
             <ResultTodo />
-            <FinishedTodo />
+            <div className={TodoStyle.finishedTodo}>
+              <FinishedTodo />
+            </div>
           </div>
       </TodoResultProvider>
     </>
