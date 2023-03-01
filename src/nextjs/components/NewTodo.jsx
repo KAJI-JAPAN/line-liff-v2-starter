@@ -38,7 +38,7 @@ export const NewTodo = () => {
           className={TodoStyle.input}
         />
       </div>
-      <button onClick={newTodoSave} className={TodoStyle.button}>
+      <button onClick={newTodoSave} className={TodoStyle.saveButton}>
         Save
       </button>
     </>

@@ -12,14 +12,20 @@
 
 .input {
   width: 100%;
+  margin: 5px;
 }
 
-.button {
+.saveButton {
   width: 100%; 
+  margin-bottom: 15px;
 }
 
 .finishedTodo {
   margin-top: 30px;
+}
+
+.deleteButton {
+  margin-left: 10px ;
 }
 
 .finishedTodoTitle {
@@ -28,3 +34,4 @@
   margin-bottom: 10px;
   text-align: center;
 }
+

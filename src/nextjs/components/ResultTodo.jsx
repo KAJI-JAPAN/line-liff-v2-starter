@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { TodoResultContext } from "../providers/TodoResultProvider"
+import { TodoDeleteButton } from "./todoitem/TodoDeleteButton";
 
 export const ResultTodo = () => {
   const { todoResult, setTodoResult } = useContext(TodoResultContext);
@@ -27,6 +28,7 @@ export const ResultTodo = () => {
             onChange={() => iscompleteCheked(index)}
           />
           <label htmlFor={result.todo}>{result.todo}</label>
+          <TodoDeleteButton index={index} />
         </div>
       ))}
     </>
