@@ -1,6 +1,6 @@
 import { useContext } from "react"
 import { TodoResultContext } from "../providers/TodoResultProvider"
-import { TodoDeleteButton } from "./todoitem/TodoDeleteButton";
+import { TodoList } from "./todoitem/TodoList";
 
 export const ResultTodo = () => {
   const { todoResult, setTodoResult } = useContext(TodoResultContext);
@@ -18,18 +18,7 @@ export const ResultTodo = () => {
     <>
     {
       todoResult.map((result, index) => (
-        !result.isCompleteFlag &&
-        <div key={index}>
-          <input
-            type="checkbox"
-            value={result.todo}
-            id={result.todo}
-            checked={result.isCompleteFlag}
-            onChange={() => iscompleteCheked(index)}
-          />
-          <label htmlFor={result.todo}>{result.todo}</label>
-          <TodoDeleteButton index={index} />
-        </div>
+        !result.isCompleteFlag &&  <TodoList result={result} index={index} />
       ))}
     </>
   )
