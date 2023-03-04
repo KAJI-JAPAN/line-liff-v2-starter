@@ -5,7 +5,7 @@ import { TodoList } from "./todoitem/TodoList";
 
 
 export const FinishedTodo = () => {
-  const { todoResult, setTodoResult } = useContext(TodoResultContext);
+  const { todoResult,  } = useContext(TodoResultContext);
   return(
     <>
       <div className={TodoStyle.finishedTodoTitle}>

@@ -2,7 +2,7 @@ import Head from "next/head";
 import { ResultTodo }  from "../components/ResultTodo";
 import { useState } from "react";
 import { NewTodo }  from "../components/NewTodo";
-import TodoStyle from "../styles/Todo.module.css";
+  import TodoStyle from "../styles/Todo.module.css";
 import  { FinishedTodo }  from "../components/FinishedTodo";
 import { TodoResultProvider }  from "../providers/TodoResultProvider";
 

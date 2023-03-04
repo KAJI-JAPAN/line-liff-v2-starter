@@ -4,16 +4,6 @@ import { TodoList } from "./todoitem/TodoList";
 
 export const ResultTodo = () => {
   const { todoResult, setTodoResult } = useContext(TodoResultContext);
-  const iscompleteCheked = (index) => {
-    const checkedTodo = todoResult.map((todo, todoIndex) => {
-      if (index === todoIndex) {
-        todo.isCompleteFlag = !todo.isCompleteFlag
-      }
-      return todo
-    })
-    setTodoResult(checkedTodo)
-  }
-  console.log(todoResult)
   return (
     <>
     {
