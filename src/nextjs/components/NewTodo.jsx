@@ -10,7 +10,7 @@ export const NewTodo = () => {
 
   const newTodoSave = () => {
     if (todo !== "") {
-      setTodoResult([...todoResult, { todo, todoDescription, isCompleteFlag: false },]);
+      setTodoResult([...todoResult, { todo, todoDescription, isCompleteFlag: false }]);
       cancelTodo();
     }
   };
