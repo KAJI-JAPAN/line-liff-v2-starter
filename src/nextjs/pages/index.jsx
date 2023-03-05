@@ -5,6 +5,7 @@ import { NewTodo }  from "../components/NewTodo";
   import TodoStyle from "../styles/Todo.module.css";
 import  { FinishedTodo }  from "../components/FinishedTodo";
 import { TodoResultProvider }  from "../providers/TodoResultProvider";
+import { AddTodoOrUpdateTodo } from "../components/todoitem/AddTodoOrUpdateTodo";
 
 export default function Home(props) {
   const [newTodoToggle, setNewTodoToggle] = useState(false);
@@ -22,7 +23,7 @@ export default function Home(props) {
             >
               ＋ New Todo
             </button>
-            {newTodoToggle && <NewTodo />}
+            {newTodoToggle && <AddTodoOrUpdateTodo />}
             <ResultTodo />
             <div className={TodoStyle.finishedTodo}>
               <FinishedTodo />

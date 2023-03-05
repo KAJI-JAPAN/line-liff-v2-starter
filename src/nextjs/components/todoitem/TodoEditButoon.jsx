@@ -1,14 +1,10 @@
-import { useContext, useState } from "react"
-import { TodoResultContext } from "../../providers/TodoResultProvider"
+import { useState } from "react"
 import { AddTodoOrUpdateTodo } from "./AddTodoOrUpdateTodo";
 
 export const TodoEditButton = (props) => {
-  const [todo, setTodo] = useState("");
   const { index, result } = props
   const [isEdit, setIsEdit] = useState(false);
-  const { todoResult, setTodoResult } = useContext(TodoResultContext);  
 
-console.log(isEdit)
   return (
     <>
     <button
@@ -16,7 +12,7 @@ console.log(isEdit)
     >
     Edit
   </button>
-    {isEdit && <AddTodoOrUpdateTodo isEdit={isEdit} result={result} index={index} /> }
+    {isEdit && <AddTodoOrUpdateTodo isEdit={isEdit} setIsEdit={setIsEdit} result={result} index={index} /> }
     </>
   )
 }

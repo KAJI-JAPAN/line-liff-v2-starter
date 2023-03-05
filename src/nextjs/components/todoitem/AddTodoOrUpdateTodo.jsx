@@ -4,28 +4,29 @@ import { TodoResultContext } from "../../providers/TodoResultProvider";
 
 
 export const AddTodoOrUpdateTodo = (props) => {
-  const { isEdit, result, index } = props
-  const [todo, setTodo] = useState(result.todo);
-  const [todoDescription, setTodoDescription] = useState(result.todoDescription);
+  const { isEdit, setIsEdit, result, index } = props
+  const [todo, setTodo] = useState(result?.todo || "");
+  const [todoDescription, setTodoDescription] = useState(result?.todoDescription || "");
   const { todoResult, setTodoResult } = useContext(TodoResultContext);
 
   const addTodo = () => {
     if (todo !== "") {
       setTodoResult([...todoResult, { todo, todoDescription, isCompleteFlag: false }]);
       cancelTodo();
+      console.log(todoResult)
     }
   };
 
   const updateTodo = () => {
     if (todo !== "") {
       const newTodo = [...todoResult]
-      console.log(...todoResult)
       console.log(newTodo)
-      newTodo.splice([index, 1, { todo, todoDescription, isCompleteFlag: false }])
-      // setTodoResult(newTodo)
-      // cancelTodo();
+      newTodo.splice(index, 1, { todo, todoDescription, isCompleteFlag: false })
+      setTodoResult(newTodo)
+      setIsEdit(false)
     }
   }
+
   const cancelTodo = () => {
     setTodo("");
     setTodoDescription("");
