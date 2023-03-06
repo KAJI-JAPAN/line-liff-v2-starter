@@ -3,7 +3,7 @@ import { TodoResultContext } from "../providers/TodoResultProvider"
 import { TodoList } from "./todoitem/TodoList";
 
 export const ResultTodo = () => {
-  const { todoResult, setTodoResult } = useContext(TodoResultContext);
+  const { todoResult } = useContext(TodoResultContext);
   return (
     <>
     {

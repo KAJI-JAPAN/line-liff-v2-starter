@@ -1,5 +1,6 @@
 import { useState } from "react"
 import { AddTodoOrUpdateTodo } from "./AddTodoOrUpdateTodo";
+import TodoStyle from "../../styles/Todo.module.css"
 
 export const TodoEditButton = (props) => {
   const { index, result } = props
@@ -9,6 +10,7 @@ export const TodoEditButton = (props) => {
     <>
     <button
       onClick={() => setIsEdit(!isEdit)}
+      className={TodoStyle.editButton}
     >
     Edit
   </button>

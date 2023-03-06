@@ -1,6 +1,6 @@
 .container {
   margin-top: 30px;
-  max-width: 300px;
+  max-width: 400px;
   margin: 0 auto;
   margin-top: 20px;
 }
@@ -20,13 +20,31 @@
   margin-bottom: 15px;
 }
 
+.deleteButton {
+  margin-left: 10px ;
+  white-space: nowrap;
+}
+
 .finishedTodo {
   margin-top: 30px;
 }
 
-.deleteButton {
-  margin-left: 10px ;
+
+.list {
+  display: flex;
+  word-break:break-all;
+  margin-top: 10px;
 }
+
+.editButton {
+  margin-left: 5px;
+  white-space: nowrap;
+}
+
+.result {
+  flex-grow: 1;
+}
+
 
 .finishedTodoTitle {
   border: 1px solid gray;
@@ -35,3 +53,6 @@
   text-align: center;
 }
 
+.resultLabel {
+  flex-grow: 30;
+}
