@@ -13,7 +13,6 @@ export const AddTodoOrUpdateTodo = (props) => {
     if (todo !== "") {
       setTodoResult([...todoResult, { todo, todoDescription, isCompleteFlag: false }]);
       cancelTodo();
-      console.log(todoResult)
     }
   };
 
