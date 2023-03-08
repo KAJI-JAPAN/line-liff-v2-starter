@@ -1,7 +1,7 @@
 import { useContext, useState } from "react";
 import TodoStyle from "../styles/Todo.module.css";
 import { TodoModalFlagContext } from "../providers/TodoModalFlagProvider";
-import { AddTodoOrUpdateTodo } from "./todoitem/AddTodoOrUpdateTodo";
+import { TodoModal } from "./todoitem/TodoModal";
 
 
 export const AddTodo = () => {
@@ -15,7 +15,7 @@ export const AddTodo = () => {
       >
         ＋ New Todo
       </button>
-      {isTodoModal && <AddTodoOrUpdateTodo />}
+      {isTodoModal && <TodoModal />}
     </>
   );
 }

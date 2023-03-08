@@ -1,12 +1,13 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import TodoStyle from "../../styles/Todo.module.css"
+import { TodoModalFlagContext } from "../../providers/TodoModalFlagProvider";
 
 export const TodoModal = () => {
-  const [isModal, setIsModal] = useState(false);
+  const { isTodoModal, setIsTodoModal } = useContext(TodoModalFlagContext)
   return (
     <div className={TodoStyle.overlay}>
       <div className={TodoStyle.modalContent}>
-        <button onClick={() => setIsModal(!isModal)}>Close</button>
+        <button onClick={() => setIsTodoModal(!isTodoModal)}>Close</button>
       </div>
     </div>
   )
