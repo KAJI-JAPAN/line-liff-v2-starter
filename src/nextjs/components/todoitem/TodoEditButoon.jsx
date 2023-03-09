@@ -1,20 +1,26 @@
-import { useState } from "react"
+import { useContext, useState } from "react"
 import { AddTodoOrUpdateTodo } from "./AddTodoOrUpdateTodo";
 import TodoStyle from "../../styles/Todo.module.css"
+import { TodoModal } from "./TodoModal";
+import { TodoModalFlagContext } from "../../providers/TodoModalFlagProvider";
+
+
+
 
 export const TodoEditButton = (props) => {
   const { index, result } = props
-  const [isEdit, setIsEdit] = useState(false);
+  const { isTodoModal, setIsTodoModal } = useContext(TodoModalFlagContext)
+
 
   return (
     <>
     <button
-      onClick={() => setIsEdit(!isEdit)}
+      onClick={() => setIsTodoModal(!isTodoModal)}
       className={TodoStyle.editButton}
     >
     Edit
   </button>
-    {isEdit && <AddTodoOrUpdateTodo isEdit={isEdit} setIsEdit={setIsEdit} result={result} index={index} /> }
+    {isTodoModal && <TodoModal result={result} index={index} buttonAction={"updateTodo"} buttonTitle={"Update"} todoTitle={result.todo} todoDetails={result.todoDescription } /> }
     </>
   )
 }

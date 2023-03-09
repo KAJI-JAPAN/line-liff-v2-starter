@@ -25,7 +25,7 @@ export const TodoModal = (props) => {
       console.log(newTodo)
       newTodo.splice(index, 1, { todo, todoDescription, isCompleteFlag: false })
       setTodoResult(newTodo)
-      setIsEdit(false)
+      setIsTodoModal(!isTodoModal)
     }
   }
 
