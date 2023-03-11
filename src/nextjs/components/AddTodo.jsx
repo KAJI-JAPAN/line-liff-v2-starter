@@ -15,7 +15,7 @@ export const AddTodo = () => {
       >
         ＋ New Todo
       </button>
-      {isTodoModal && <TodoModal buttonAction={"addTodo"} buttonTitle={"Save"} todoTitle={"New Todo"} todoDetails={"Todo Description"}  />}
-    </>
+      {isTodoModal && <TodoModal />}
+    </> 
   );
 }

@@ -19,7 +19,7 @@ export const TodoDeleteButton = (props) => {
         onClick={() => deleteTodo(index)}
         className={TodoStyle.deleteButton}
       >
-        TodoDelte
+        Delte
       </button>
   )
 }
