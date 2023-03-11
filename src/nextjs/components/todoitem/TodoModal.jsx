@@ -2,14 +2,16 @@ import { useContext, useState } from "react"
 import TodoStyle from "../../styles/Todo.module.css"
 import { TodoModalFlagContext } from "../../providers/TodoModalFlagProvider";
 import { TodoResultContext } from "../../providers/TodoResultProvider";
+import { SelectedTodoContext } from "../../providers/SelectedTodo";
 
 
 export const TodoModal = (props) => {
-  const { result, index, isEdit, setIsEdit, selectedTodo } = props
-  const [todo, setTodo] = useState(result?.todo ||  "");
-  const [todoDescription, setTodoDescription] = useState(result?.todoDescription || "")
+  const { result, index } = props
+  const [todo, setTodo] = useState("");
+  const [todoDescription, setTodoDescription] = useState("")
   const { todoResult, setTodoResult } = useContext(TodoResultContext);
   const { isTodoModal, setIsTodoModal } = useContext(TodoModalFlagContext)
+  const selectedTodo = todoResult.find((todo, todoIndex) => todoIndex ===  index )
 
   const addTodo = () => {
     if (todo !== "") {
@@ -26,7 +28,6 @@ export const TodoModal = (props) => {
       newTodo.splice(index, 1, { todo, todoDescription, isCompleteFlag: false })
       setTodo("")
       setTodoResult(newTodo)
-      setIsEdit(false)
       setIsTodoModal(!isTodoModal)
     }
   }
@@ -43,15 +44,12 @@ export const TodoModal = (props) => {
 
   const closeModal = () => {
     setIsTodoModal(!isTodoModal)
-    setIsEdit(false)
   }
 
   const cancelTodo = () => {
     setTodo("");
     setTodoDescription("");
   };
-  
-  console.log(selectedTodo)
 
   return (
     <div className={TodoStyle.overlay}>
@@ -60,7 +58,8 @@ export const TodoModal = (props) => {
         <input
           value={todo}
           onChange={(event) => setTodo(event.target.value)}
-          placeholder={isEdit ? result.todo : "New todo"}
+          // placeholder={isEdit ? result.todo : "New todo"}
+          placeholder={"New todo"}
         />
         <button onClick={() => cancelTodo()}>x</button>
       </div>
@@ -68,14 +67,16 @@ export const TodoModal = (props) => {
         <textarea
           value={todoDescription}
           onChange={(event) => setTodoDescription(event.target.value)}
-          placeholder={ isEdit ? result.todoDescription : "Description" }
+          placeholder={ "Description" }
+          // placeholder={ isEdit ? result.todoDescription : "Description" }
           className={TodoStyle.input}
         />
       </div>
-      <button onClick={ isEdit ? updateTodo : addTodo} 
+      {/* <button onClick={ isEdit ? updateTodo : addTodo}  */}
+      <button onClick={ addTodo } 
         className={TodoStyle.saveButton}
       >
-        { isEdit ? "Update" : "Save" }
+        {/* { isEdit ? "Update" : "Save" } */}
       </button>
 
         <button onClick={closeModal}>Close</button>

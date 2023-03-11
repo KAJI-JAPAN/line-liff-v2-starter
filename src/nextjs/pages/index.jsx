@@ -5,6 +5,7 @@ import { AddTodo }  from "../components/AddTodo";
 import  { FinishedTodo }  from "../components/FinishedTodo";
 import { TodoResultProvider }  from "../providers/TodoResultProvider";
 import { TodoModalFlagProvider } from "../providers/TodoModalFlagProvider";
+import { SelectedTodoProvider } from "../providers/SelectedTodo";
 
 export default function Home() {
   return (
@@ -13,15 +14,17 @@ export default function Home() {
         <title>Todo Sample</title>
       </Head>
       <TodoResultProvider>
-        <TodoModalFlagProvider>
-          <div className={TodoStyle.container}>
-            <AddTodo />
-            <ResultTodo />
-            <div className={TodoStyle.finishedTodo}>
-              <FinishedTodo />
+        <SelectedTodoProvider>
+          <TodoModalFlagProvider>
+            <div className={TodoStyle.container}>
+              <AddTodo />
+              <ResultTodo />
+              <div className={TodoStyle.finishedTodo}>
+                <FinishedTodo />
+              </div>
             </div>
-          </div>
-        </TodoModalFlagProvider>
+          </TodoModalFlagProvider>
+        </SelectedTodoProvider>
       </TodoResultProvider>
     </>
   );
