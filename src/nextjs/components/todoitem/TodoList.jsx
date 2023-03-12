@@ -20,8 +20,8 @@ export const TodoList = (props) => {
     setTodoResult(checkedTodo);
   };
 
-  const todoHandleClick = async(todo) => {
-    setSelectedTodo({...todo, isEdit: true});
+  const todoHandleClick = (index, todo) => {
+    setSelectedTodo({id: index, ...todo, isEdit: true});
   };
   return (
     <>
@@ -42,7 +42,7 @@ export const TodoList = (props) => {
               {todo.todo}
             </label>
           </div>
-          <TodoEditButton getTodoIndex={() => todoHandleClick(todo)} />
+          <TodoEditButton getTodoIndex={() => todoHandleClick(index, todo)} />
           <TodoDeleteButton index={index} />
         </div>
       ))}

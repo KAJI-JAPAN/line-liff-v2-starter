@@ -28,7 +28,7 @@ export const TodoModal = (props) => {
   const updateTodo = () => {
     if (todo !== "") {
       const newTodo = [...todoResult];
-      newTodo.splice(index, 1, {
+      newTodo.splice(selectedTodo.id, 1, {
         todo,
         todoDescription,
         isCompleteFlag: false,
