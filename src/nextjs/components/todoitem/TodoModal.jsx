@@ -68,10 +68,10 @@ export const TodoModal = (props) => {
             className={TodoStyle.input}
           />
         </div>
-        {/* <button onClick={ selectedTodo ? updateTodo : addTodo} 
-            className={TodoStyle.saveButton}
-        > */}
-        <button onClick={addTodo} >
+        <button
+          onClick={ selectedTodo ? updateTodo : addTodo} 
+          className={TodoStyle.saveButton}
+        >
           { selectedTodo ? "Update" : "Save" }
         </button>
 
