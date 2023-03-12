@@ -36,11 +36,13 @@ export const TodoModal = (props) => {
       setTodo("");
       setTodoResult(newTodo);
       setIsTodoModal(!isTodoModal);
+      setSelectedTodo(null)
     }
   };
 
   const closeModal = () => {
     setIsTodoModal(!isTodoModal);
+    setSelectedTodo(null)
   };
 
   const cancelTodo = () => {
