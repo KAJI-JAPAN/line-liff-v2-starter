@@ -10,10 +10,10 @@ export const TodoList = (props) => {
   const { seletedTodo, setSelectedTodo  } = useContext(SelectedTodoContext);
   const { result } = props;
 
-  const iscompleteCheked = (index) => {
+  const iscompleteCheked = (index, selectedTodo) => {
     const checkedTodo = todoResult.map((todo, todoIndex) => {
       if (index === todoIndex) {
-        todo.isCompleteFlag = !todo.isCompleteFlag;
+        selectedTodo.isCompleteFlag = !selectedTodo.isCompleteFlag;
       }
       return todo;
     });
@@ -23,6 +23,7 @@ export const TodoList = (props) => {
   const todoHandleClick = (index, todo) => {
     setSelectedTodo({id: index, ...todo, isEdit: true});
   };
+  console.log(todoResult)
   return (
     <>
       {result.map((todo, index) => (
@@ -33,7 +34,7 @@ export const TodoList = (props) => {
               value={todo.todo}
               id={todo.todo}
               checked={todo.isCompleteFlag}
-              onChange={() => iscompleteCheked(index)}
+              onChange={() => iscompleteCheked(index, todo)}
               className={todo.resultInput}
             />
           </div>

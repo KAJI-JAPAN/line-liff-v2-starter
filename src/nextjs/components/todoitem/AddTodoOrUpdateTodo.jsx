@@ -19,7 +19,6 @@ export const AddTodoOrUpdateTodo = (props) => {
   const updateTodo = () => {
     if (todo !== "") {
       const newTodo = [...todoResult]
-      console.log(newTodo)
       newTodo.splice(index, 1, { todo, todoDescription, isCompleteFlag: false })
       setTodoResult(newTodo)
       setIsEdit(false)
