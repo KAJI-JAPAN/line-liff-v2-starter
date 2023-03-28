@@ -5,7 +5,9 @@ import { TodoList } from "./todoitem/TodoList";
 
 export const FinishedTodo = () => {
   const { todoResult,  } = useContext(TodoResultContext);
-  const completeTodo = todoResult.filter(todo => todo.isCompleteFlag)
+  const completeTodo = todoResult
+  .map((todo, index) => ({ ...todo, originalIndex: index }))
+  .filter(todo => todo.isCompleteFlag);
   return(
     <>
       <div className={TodoStyle.finishedTodoTitle}>

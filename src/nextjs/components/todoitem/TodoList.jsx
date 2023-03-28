@@ -1,29 +1,25 @@
 import { TodoDeleteButton } from "./TodoDeleteButton";
 import { TodoResultContext } from "../../providers/TodoResultProvider";
-import { useContext } from "react";
+import { useContext, memo } from "react";
 import { TodoEditButton } from "./TodoEditButoon";
 import { SelectedTodoContext } from "../../providers/SelectedTodoProvider";
 import TodoStyle from "../../styles/Todo.module.css";
 
-export const TodoList = (props) => {
+export const TodoList = memo((props) => {
   const { todoResult, setTodoResult } = useContext(TodoResultContext);
-  const { seletedTodo, setSelectedTodo  } = useContext(SelectedTodoContext);
+  const { selectedTodo, setSelectedTodo  } = useContext(SelectedTodoContext);
   const { result } = props;
 
-  const iscompleteCheked = (index, selectedTodo) => {
-    const checkedTodo = todoResult.map((todo, todoIndex) => {
-      if (index === todoIndex) {
-        selectedTodo.isCompleteFlag = !selectedTodo.isCompleteFlag;
-      }
-      return todo;
-    });
-    setTodoResult(checkedTodo);
+  const iscompleteCheked = (index) => {
+    const newTodoResult = [...todoResult];
+    newTodoResult[index].isCompleteFlag = !newTodoResult[index].isCompleteFlag;
+    setTodoResult(newTodoResult);
   };
 
   const todoHandleClick = (index, todo) => {
     setSelectedTodo({id: index, ...todo, isEdit: true});
   };
-  console.log(todoResult)
+
   return (
     <>
       {result.map((todo, index) => (
@@ -34,7 +30,7 @@ export const TodoList = (props) => {
               value={todo.todo}
               id={todo.todo}
               checked={todo.isCompleteFlag}
-              onChange={() => iscompleteCheked(index, todo)}
+              onChange={() => iscompleteCheked(todo.originalIndex)}
               className={todo.resultInput}
             />
           </div>
@@ -49,4 +45,4 @@ export const TodoList = (props) => {
       ))}
     </>
   );
-};
+})
