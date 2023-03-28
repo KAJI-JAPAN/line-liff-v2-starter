@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import { memo, useContext, useState } from "react";
 import TodoStyle from "../styles/Todo.module.css";
 import { TodoModalFlagContext } from "../providers/TodoModalFlagProvider";
 import { TodoModal } from "./todoitem/TodoModal";
 
 
-export const AddTodo = () => {
+export const AddTodo = memo(() => {
   const { isTodoModal, setIsTodoModal } = useContext(TodoModalFlagContext)
 
   return (
@@ -18,4 +18,4 @@ export const AddTodo = () => {
       {isTodoModal && <TodoModal />}
     </> 
   );
-}
+})

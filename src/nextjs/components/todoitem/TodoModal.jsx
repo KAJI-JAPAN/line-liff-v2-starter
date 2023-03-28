@@ -1,10 +1,10 @@
-import { useContext, useState } from "react";
+import { memo, useContext, useState } from "react";
 import TodoStyle from "../../styles/Todo.module.css";
 import { TodoModalFlagContext } from "../../providers/TodoModalFlagProvider";
 import { TodoResultContext } from "../../providers/TodoResultProvider";
 import { SelectedTodoContext } from "../../providers/SelectedTodoProvider";
 
-export const TodoModal = (props) => {
+export const TodoModal = memo((props) => {
   const { todoResult, setTodoResult } = useContext(TodoResultContext);
   const { isTodoModal, setIsTodoModal } = useContext(TodoModalFlagContext);
   const { selectedTodo, setSelectedTodo } = useContext(SelectedTodoContext);
@@ -49,6 +49,7 @@ export const TodoModal = (props) => {
     setTodo("");
     setTodoDescription("");
   };
+
   return (
     <div className={TodoStyle.overlay}>
       <div className={TodoStyle.modalContent}>
@@ -79,4 +80,4 @@ export const TodoModal = (props) => {
       </div>
     </div>
   );
-};
+});

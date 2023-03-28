@@ -1,13 +1,13 @@
 import { TodoDeleteButton } from "./TodoDeleteButton";
 import { TodoResultContext } from "../../providers/TodoResultProvider";
-import { useContext, memo } from "react";
+import { useContext, memo, useCallback } from "react";
 import { TodoEditButton } from "./TodoEditButoon";
 import { SelectedTodoContext } from "../../providers/SelectedTodoProvider";
 import TodoStyle from "../../styles/Todo.module.css";
 
 export const TodoList = memo((props) => {
   const { todoResult, setTodoResult } = useContext(TodoResultContext);
-  const { selectedTodo, setSelectedTodo  } = useContext(SelectedTodoContext);
+  const { setSelectedTodo  } = useContext(SelectedTodoContext);
   const { result } = props;
 
   const iscompleteCheked = (index) => {
@@ -16,9 +16,10 @@ export const TodoList = memo((props) => {
     setTodoResult(newTodoResult);
   };
 
-  const todoHandleClick = (index, todo) => {
+  const todoHandleClick = useCallback((index, todo) => {
     setSelectedTodo({id: index, ...todo, isEdit: true});
-  };
+  }, []);
+console.log("レンダリングされました")
 
   return (
     <>

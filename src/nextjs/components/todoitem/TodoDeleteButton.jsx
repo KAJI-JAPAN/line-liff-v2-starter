@@ -1,10 +1,9 @@
-
-import { useContext } from "react"
+import { memo, useContext } from "react"
 import { TodoResultContext } from "../../providers/TodoResultProvider"
 import TodoStyle from "../../styles/Todo.module.css";
 
 
-export const TodoDeleteButton = (props) => {
+export const TodoDeleteButton = memo((props) => {
   const { index } = props
   const { todoResult, setTodoResult } = useContext(TodoResultContext);  
 
@@ -22,4 +21,4 @@ export const TodoDeleteButton = (props) => {
         Delte
       </button>
   )
-}
+})
